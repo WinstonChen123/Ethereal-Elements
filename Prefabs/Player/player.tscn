@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1bwxjsn6y50d"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_hnh1r"]
+[ext_resource type="PackedScene" uid="uid://c4ve7xadn3agc" path="res://UI/PauseMenu.tscn" id="2_tcmng"]
+[ext_resource type="PackedScene" uid="uid://0swru8iveni8" path="res://UI/Settings/SettingsPanel.tscn" id="3_1iel2"]
+[ext_resource type="PackedScene" uid="uid://s3fuxfwb0u2q" path="res://UI/Settings/Audio/AudioSettings.tscn" id="4_173sg"]
+[ext_resource type="PackedScene" uid="uid://dwv2y5py1phjh" path="res://UI/Settings/Video/GameSettings.tscn" id="5_yby1q"]
+[ext_resource type="PackedScene" uid="uid://cuyk6dryrjhl4" path="res://UI/Settings/Controls/Controls.tscn" id="6_bn7dt"]
+[ext_resource type="Texture2D" uid="uid://bdmp4e3mdj6uj" path="res://Sprites/Screenshot 2023-12-26 144209.png" id="7_p0ikt"]
+[ext_resource type="Texture2D" uid="uid://c5klveyksy5o6" path="res://Sprites/Sprite-0001.png" id="8_yp6fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1xv"]
+size = Vector2(36.5, 54)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(-4, -1)
+collision_mask = 2
+script = ExtResource("1_hnh1r")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4, 1)
+position_smoothing_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_tcmng")]
+visible = false
+
+[node name="Settings Panel" parent="UI" instance=ExtResource("3_1iel2")]
+visible = false
+
+[node name="AudioSettings" parent="UI/Settings Panel" instance=ExtResource("4_173sg")]
+visible = false
+layout_mode = 1
+
+[node name="GameSettings" parent="UI/Settings Panel" instance=ExtResource("5_yby1q")]
+visible = false
+layout_mode = 1
+
+[node name="Controls2" parent="UI/Settings Panel" instance=ExtResource("6_bn7dt")]
+visible = false
+layout_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 1)
+scale = Vector2(0.0573521, 0.0565769)
+texture = ExtResource("7_p0ikt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(401.032, 49.7315)
+scale = Vector2(12.2374, 14.9792)
+texture = ExtResource("8_yp6fn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 1)
+shape = SubResource("RectangleShape2D_kn1xv")
+
+[node name="Shooting Point" type="Marker2D" parent="."]
+position = Vector2(22, 1)
+
+[node name="Shooting Point2" type="Marker2D" parent="."]
+position = Vector2(368, -188)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvnqesxn60svj"]
+
+[ext_resource type="Script" path="res://Scripts/Spells/WaterBlast.gd" id="1_qrg5y"]
+[ext_resource type="Texture2D" uid="uid://cubm0uu03pw8m" path="res://Sprites/icon.svg" id="2_wdod6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skl3x"]
+size = Vector2(45, 43)
+
+[node name="WaterBlast" type="Area2D" groups=["AllyProjectile"]]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_qrg5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9.53674e-07)
+scale = Vector2(0.351563, 0.335103)
+texture = ExtResource("2_wdod6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_skl3x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

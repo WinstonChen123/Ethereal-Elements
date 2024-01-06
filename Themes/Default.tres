@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://doqiwgxwjf22i"]
+
+[ext_resource type="FontFile" uid="uid://bjatjsuv3f2j7" path="res://Fonts/yoster.ttf" id="1_xcuh7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_weps0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ofu46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unl3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pyamf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_et8kn"]
+
+[resource]
+default_font = ExtResource("1_xcuh7")
+default_font_size = 40
+Button/styles/disabled = SubResource("StyleBoxEmpty_weps0")
+Button/styles/focus = SubResource("StyleBoxEmpty_ofu46")
+Button/styles/hover = SubResource("StyleBoxEmpty_unl3y")
+Button/styles/normal = SubResource("StyleBoxEmpty_pyamf")
+Button/styles/pressed = SubResource("StyleBoxEmpty_et8kn")

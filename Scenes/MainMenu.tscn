@@ -1,0 +1,215 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqh5vnwum1cfn"]
+
+[ext_resource type="Theme" uid="uid://doqiwgxwjf22i" path="res://Themes/Default.tres" id="1_88gx4"]
+[ext_resource type="Script" path="res://Scripts/Settings/MainMenu.gd" id="1_ymeep"]
+[ext_resource type="PackedScene" uid="uid://0swru8iveni8" path="res://UI/Settings/SettingsPanel.tscn" id="3_mopyp"]
+[ext_resource type="PackedScene" uid="uid://s3fuxfwb0u2q" path="res://UI/Settings/Audio/AudioSettings.tscn" id="4_hi5oh"]
+[ext_resource type="PackedScene" uid="uid://dwv2y5py1phjh" path="res://UI/Settings/Video/GameSettings.tscn" id="5_o6g6n"]
+[ext_resource type="PackedScene" uid="uid://cuyk6dryrjhl4" path="res://UI/Settings/Controls/Controls.tscn" id="6_hrpc0"]
+
+[sub_resource type="Environment" id="Environment_m3vlr"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.41
+glow_blend_mode = 1
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ymeep")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_m3vlr")
+
+[node name="Title" type="Label" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 497.0
+offset_top = 141.0
+offset_right = 1482.0
+offset_bottom = 444.0
+theme = ExtResource("1_88gx4")
+theme_override_font_sizes/font_size = 150
+text = "Ethereal
+      Elements"
+
+[node name="Play" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 945.0
+offset_top = 794.0
+offset_right = 1045.0
+offset_bottom = 835.0
+theme = ExtResource("1_88gx4")
+text = "Play"
+
+[node name="Label" type="Label" parent="Play"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 101.0
+offset_right = 114.2
+offset_bottom = 41.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Play"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -29.0
+offset_top = -2.0
+offset_right = -15.8
+offset_bottom = 39.0
+text = ">"
+
+[node name="Credits" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 913.0
+offset_top = 839.0
+offset_right = 1072.0
+offset_bottom = 880.0
+theme = ExtResource("1_88gx4")
+text = "Credits"
+
+[node name="Label" type="Label" parent="Credits"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -33.0
+offset_top = -2.0
+offset_right = -27.942
+offset_bottom = 39.0
+text = ">"
+
+[node name="Label2" type="Label" parent="Credits"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 164.0
+offset_right = 169.058
+offset_bottom = 41.0
+text = "<"
+
+[node name="Settings" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 898.0
+offset_top = 885.0
+offset_right = 1084.0
+offset_bottom = 926.0
+theme = ExtResource("1_88gx4")
+text = "Settings"
+
+[node name="Label" type="Label" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 191.0
+offset_top = 2.0
+offset_right = 192.332
+offset_bottom = 43.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -28.0
+offset_top = -2.0
+offset_right = -26.668
+offset_bottom = 39.0
+text = ">"
+
+[node name="Achievements" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 846.0
+offset_top = 927.0
+offset_right = 1136.0
+offset_bottom = 968.0
+theme = ExtResource("1_88gx4")
+text = "Achievements"
+
+[node name="Label" type="Label" parent="Achievements"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 296.0
+offset_top = -1.0
+offset_right = 296.992
+offset_bottom = 40.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Achievements"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -33.0
+offset_top = -1.0
+offset_right = -32.008
+offset_bottom = 40.0
+text = ">"
+
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+offset_left = 948.0
+offset_top = 973.0
+offset_right = 1038.0
+offset_bottom = 1014.0
+theme = ExtResource("1_88gx4")
+text = "Quit"
+
+[node name="Label" type="Label" parent="Quit"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 92.0
+offset_top = -2.0
+offset_right = 106.58
+offset_bottom = 39.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Quit"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -31.0
+offset_top = -3.0
+offset_right = -16.42
+offset_bottom = 38.0
+text = ">"
+
+[node name="Settings Panel" parent="." instance=ExtResource("3_mopyp")]
+visible = false
+
+[node name="AudioSettings" parent="Settings Panel" instance=ExtResource("4_hi5oh")]
+visible = false
+layout_mode = 1
+
+[node name="GameSettings" parent="Settings Panel" instance=ExtResource("5_o6g6n")]
+visible = false
+layout_mode = 1
+
+[node name="Controls2" parent="Settings Panel" instance=ExtResource("6_hrpc0")]
+visible = false
+layout_mode = 1
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Achievements" to="." method="_on_achievements_mouse_entered"]
+[connection signal="mouse_exited" from="Achievements" to="." method="_on_achievements_mouse_exited"]
+[connection signal="pressed" from="Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,155 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuyk6dryrjhl4"]
+
+[ext_resource type="Script" path="res://Scripts/Settings/Controls.gd" id="1_a1yoc"]
+[ext_resource type="Theme" uid="uid://doqiwgxwjf22i" path="res://Themes/Default.tres" id="1_rghey"]
+[ext_resource type="PackedScene" uid="uid://denqj1tqxiluy" path="res://UI/Settings/Controls/Keybind.tscn" id="2_o3ala"]
+
+[sub_resource type="Environment" id="Environment_62jkl"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.41
+glow_blend_mode = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6yydm"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a1yoc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1923.0
+offset_bottom = 1084.0
+color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_62jkl")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 605.0
+offset_top = 20.0
+offset_right = 1316.0
+offset_bottom = 170.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = ExtResource("1_rghey")
+theme_override_font_sizes/font_size = 150
+text = "Controls"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+top_level = true
+layout_mode = 0
+offset_top = 186.0
+offset_right = 1921.0
+offset_bottom = 889.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6yydm")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="InputButton8" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_o3ala")]
+layout_mode = 2
+
+[node name="ResetDefaults" type="Button" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 939.0
+offset_right = 1153.0
+offset_bottom = 1000.0
+theme = ExtResource("1_rghey")
+text = "Restore Defaults"
+
+[node name="Label" type="Label" parent="ResetDefaults"]
+visible = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 49.0
+text = ">"
+
+[node name="Label2" type="Label" parent="ResetDefaults"]
+visible = false
+layout_mode = 0
+offset_left = 370.0
+offset_top = 9.0
+offset_right = 410.0
+offset_bottom = 50.0
+text = "<"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 992.0
+offset_right = 1023.0
+offset_bottom = 1053.0
+theme = ExtResource("1_rghey")
+text = "Back"
+
+[node name="Label" type="Label" parent="Back"]
+visible = false
+layout_mode = 0
+offset_left = -31.0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 49.0
+text = ">"
+
+[node name="Label2" type="Label" parent="Back"]
+visible = false
+layout_mode = 0
+offset_left = 111.0
+offset_top = 9.0
+offset_right = 151.0
+offset_bottom = 50.0
+text = "<"
+
+[connection signal="mouse_entered" from="ResetDefaults" to="." method="_on_reset_defaults_mouse_entered"]
+[connection signal="mouse_exited" from="ResetDefaults" to="." method="_on_reset_defaults_mouse_exited"]
+[connection signal="pressed" from="ResetDefaults" to="." method="_on_reset_defaults_pressed"]
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,185 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ve7xadn3agc"]
+
+[ext_resource type="Script" path="res://Scripts/Settings/PauseMenu.gd" id="1_heq75"]
+[ext_resource type="Theme" uid="uid://doqiwgxwjf22i" path="res://Themes/Default.tres" id="2_tmvgd"]
+
+[sub_resource type="Environment" id="Environment_nw4so"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.41
+glow_blend_mode = 1
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_heq75")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_nw4so")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1924.0
+offset_bottom = 1085.0
+color = Color(0, 0, 0, 0.482353)
+metadata/_edit_use_anchors_ = true
+
+[node name="Paused" type="Label" parent="."]
+layout_mode = 0
+offset_left = 696.0
+offset_top = 86.0
+offset_right = 1270.0
+offset_bottom = 236.0
+theme = ExtResource("2_tmvgd")
+theme_override_font_sizes/font_size = 150
+text = "Paused"
+metadata/_edit_use_anchors_ = true
+
+[node name="Resume" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+layout_mode = 0
+offset_left = 900.0
+offset_top = 835.0
+offset_right = 1050.0
+offset_bottom = 876.0
+theme = ExtResource("2_tmvgd")
+text = "Resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Resume"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 154.0
+offset_top = -1.0
+offset_right = 167.2
+offset_bottom = 40.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Resume"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -31.0
+offset_top = -3.0
+offset_right = -17.8
+offset_bottom = 38.0
+text = ">"
+
+[node name="Settings" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+layout_mode = 0
+offset_left = 879.0
+offset_top = 883.0
+offset_right = 1065.0
+offset_bottom = 924.0
+theme = ExtResource("2_tmvgd")
+text = "Settings"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 191.0
+offset_top = 2.0
+offset_right = 192.332
+offset_bottom = 43.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Settings"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -28.0
+offset_top = -2.0
+offset_right = -26.668
+offset_bottom = 39.0
+text = ">"
+
+[node name="Achievements" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+layout_mode = 0
+offset_left = 830.0
+offset_top = 930.0
+offset_right = 1120.0
+offset_bottom = 971.0
+theme = ExtResource("2_tmvgd")
+text = "Achievements"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Achievements"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 296.0
+offset_top = -1.0
+offset_right = 296.992
+offset_bottom = 40.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Achievements"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -33.0
+offset_top = -1.0
+offset_right = -32.008
+offset_bottom = 40.0
+text = ">"
+
+[node name="Quit" type="Button" parent="."]
+self_modulate = Color(1.2, 1.2, 1.2, 1)
+layout_mode = 0
+offset_left = 928.0
+offset_top = 978.0
+offset_right = 1018.0
+offset_bottom = 1019.0
+theme = ExtResource("2_tmvgd")
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Quit"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = 92.0
+offset_top = -2.0
+offset_right = 106.58
+offset_bottom = 39.0
+text = "<"
+
+[node name="Label2" type="Label" parent="Quit"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.138
+offset_left = -31.0
+offset_top = -3.0
+offset_right = -16.42
+offset_bottom = 38.0
+text = ">"
+
+[connection signal="mouse_entered" from="Resume" to="." method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="Resume" to="." method="_on_resume_mouse_exited"]
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Achievements" to="." method="_on_achievements_mouse_entered"]
+[connection signal="mouse_exited" from="Achievements" to="." method="_on_achievements_mouse_exited"]
+[connection signal="pressed" from="Achievements" to="." method="_on_achievements_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
