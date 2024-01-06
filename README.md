@@ -1,1 +1,1 @@
-#By: Winston Chen, Everett Nelson, and Devin Subotnick
+By: Winston Chen, Everett Nelson, and Devin Subotnick
