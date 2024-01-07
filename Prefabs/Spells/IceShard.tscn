@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://cubm0uu03pw8m" path="res://Sprites/icon.svg" id="2_yc58v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skl3x"]
-size = Vector2(133.625, 20.5)
+size = Vector2(90.8125, 11.25)
 
 [node name="IceShard" type="Area2D" groups=["AllyProjectile"]]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 5
+collision_mask = 2
 script = ExtResource("1_yoyom")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 0)
-scale = Vector2(1.04688, 0.15625)
+position = Vector2(-0.500073, -0.216422)
+scale = Vector2(0.710939, 0.0903684)
 texture = ExtResource("2_yc58v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

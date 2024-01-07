@@ -7,8 +7,8 @@
 size = Vector2(45, 43)
 
 [node name="WaterBlast" type="Area2D" groups=["AllyProjectile"]]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 5
+collision_mask = 2
 script = ExtResource("1_qrg5y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

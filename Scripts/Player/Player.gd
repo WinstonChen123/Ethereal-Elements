@@ -9,6 +9,7 @@ var spell = 0
 const enemy = preload("res://Prefabs/Mobs/Enemy.tscn")
 const WaterBlast = preload("res://Prefabs/Spells/WaterBlast.tscn")
 const IceWall = preload("res://Prefabs/Spells/IceWall.tscn")
+const IceShard = preload("res://Prefabs/Spells/IceShard.tscn")
 
 func _ready():
 	pass
@@ -20,26 +21,26 @@ func _physics_process(_delta):
 func spell1():
 	var projectile = WaterBlast.instantiate()
 
-	attackCooldown.wait_time = 0.001
+	attackCooldown.wait_time = 0.5
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
 	attackCooldown.start()
 
 func spell2():
-	var projectile = IceWall.instantiate()
-	
-	attackCooldown.wait_time = 5
+	var projectile = IceShard.instantiate()
+
+	attackCooldown.wait_time = 1
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
 	attackCooldown.start()
 
 func spell3():
-	var projectile = WaterBlast.instantiate()
-
-	attackCooldown.wait_time = 0.1
+	var projectile = IceWall.instantiate()
+	
+	attackCooldown.wait_time = 5
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
-	attackCooldown.start()
+	attackCooldown.start
 
 func spell4():
 	var projectile = WaterBlast.instantiate()

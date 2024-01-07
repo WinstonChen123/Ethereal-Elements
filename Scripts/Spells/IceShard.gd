@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 300
+var speed = 500
 var damage = 10
 
 func _physics_process(delta):
@@ -11,7 +11,7 @@ func _physics_process(delta):
 	queue_free()
 
 func _on_area_entered(area):
-	if area.is_in_group("AllyProjectileDetectable"):
+	if area.is_in_group("Wall"):
 		queue_free()
 
 

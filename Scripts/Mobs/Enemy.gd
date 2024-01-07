@@ -12,13 +12,7 @@ func _process(delta):
 	look_at($"../Player".global_position)
 	
 	move_and_slide()
-	if health == 0:
-		print("i died")
-		queue_free()
-
-
-func _on_tree_entered(area):
-	if area.is_in_group("AllyProjectile"):
+	if health <= 0:
 		queue_free()
 
 func new_jew():
