@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cltmr12n2qkij"]
+[gd_scene load_steps=5 format=3 uid="uid://cltmr12n2qkij"]
 
 [ext_resource type="Script" path="res://Scripts/Spells/IceWall.gd" id="1_buc6a"]
 [ext_resource type="Texture2D" uid="uid://d35mkeuyr0d62" path="res://Sprites/Sprite-0001.aseprite" id="2_g4jph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_skl3x"]
 size = Vector2(12, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwphv"]
+size = Vector2(12, 107)
 
 [node name="IceWall" type="Area2D" groups=["Wall"]]
 collision_layer = 7
@@ -19,5 +22,13 @@ texture = ExtResource("2_g4jph")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(12, -1)
 shape = SubResource("RectangleShape2D_skl3x")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 7
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(12, -0.5)
+shape = SubResource("RectangleShape2D_kwphv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

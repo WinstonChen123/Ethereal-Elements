@@ -3,8 +3,10 @@ extends CharacterBody2D
 var spell = 0
 @export var speed = 300
 
-@onready var attackCooldown = $Timer
-@onready var shootingPoint = $"Shooting Point"
+@onready var WaterBlastCoolDown = $Timers/Timer
+@onready var IceShardCoolDown = $Timers/Timer2
+@onready var IceWallCoolDown = $Timers/Timer3
+@onready var shootingPoint = $"Markers/Shooting Point"
 
 const enemy = preload("res://Prefabs/Mobs/Enemy.tscn")
 const WaterBlast = preload("res://Prefabs/Spells/WaterBlast.tscn")
@@ -18,46 +20,45 @@ func _physics_process(_delta):
 	inputs()
 	movement()
 	
-func spell1():
+func Waterblast():
 	var projectile = WaterBlast.instantiate()
 
-	attackCooldown.wait_time = 0.5
+	WaterBlastCoolDown.wait_time = 0.2
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
-	attackCooldown.start()
+	WaterBlastCoolDown.start()
 
-func spell2():
+func Iceshard():
 	var projectile = IceShard.instantiate()
 
-	attackCooldown.wait_time = 1
+	IceShardCoolDown.wait_time = 3
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
-	attackCooldown.start()
+	IceShardCoolDown.start()
 
-func spell3():
+func Icewall():
 	var projectile = IceWall.instantiate()
 	
-	attackCooldown.wait_time = 5
+	IceWallCoolDown.wait_time = 7
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
-	attackCooldown.start
+	IceWallCoolDown.start()
 
 func spell4():
 	var projectile = WaterBlast.instantiate()
 
-	attackCooldown.wait_time = 0.1
+	WaterBlastCoolDown.wait_time = 0.1
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
-	attackCooldown.start()
+	WaterBlastCoolDown.start()
 
 func spell5():
 	var projectile = enemy.instantiate()
 
-	attackCooldown.wait_time = 0.001
+	WaterBlastCoolDown.wait_time = 0.001
 	owner.add_child(projectile)
-	projectile.transform = $"Shooting Point2".global_transform 
-	attackCooldown.start()
-
+	projectile.transform = $"Markers/Shooting Point2".global_transform 
+	WaterBlastCoolDown.start()
 
 func movement():
 	var direction = Input.get_vector("Left", "Right", "Up", "Down")
@@ -79,15 +80,17 @@ func inputs():
 		if Input.is_action_pressed("Spell5"):
 			spell = 4
 		if Input.is_action_pressed("UseSpell"):
-			if attackCooldown.is_stopped():
+			if WaterBlastCoolDown.is_stopped():
 				if spell == 0:
-					spell1()
-				if spell == 1:
-					spell2()
-				if spell == 2:
-					spell3()
+					Waterblast()
 				if spell == 3:
 					spell4()
-				if spell == 4:
-					spell5()
+			if IceShardCoolDown.is_stopped():
+				if spell == 1:
+					Iceshard()
+			if IceWallCoolDown.is_stopped():
+				if spell == 2:
+					Icewall()
+			if spell == 4:
+				spell5()
 
