@@ -17,7 +17,8 @@ extends Node2D
 #region PlayButton
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://Scenes/World.tscn")
+	get_tree().change_scene_to_file("res://UI/Elements/ElementSelector.tscn")
+#	get_tree().change_scene_to_file("res://Scenes/WaterCamp.tscn")
 	Engine.time_scale = 1
 func _on_play_mouse_entered():
 	PlayArrow1.show()

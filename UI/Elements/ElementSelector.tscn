@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://db25v2mi2yk34"]
+
+[ext_resource type="Theme" uid="uid://doqiwgxwjf22i" path="res://Themes/Default.tres" id="1_up581"]
+[ext_resource type="Script" path="res://UI/Elements/ElementSelector.gd" id="1_yg0eg"]
+[ext_resource type="FontFile" uid="uid://bjatjsuv3f2j7" path="res://Fonts/yoster.ttf" id="2_hdkqp"]
+
+[node name="Element Selector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yg0eg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 1925.0
+offset_bottom = 211.0
+theme = ExtResource("1_up581")
+theme_override_font_sizes/font_size = 150
+text = "Element Selector
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Air" type="Button" parent="."]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 268.0
+offset_right = 511.0
+offset_bottom = 979.0
+theme_override_fonts/font = ExtResource("2_hdkqp")
+theme_override_font_sizes/font_size = 50
+text = "Air
+"
+
+[node name="Water" type="Button" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 270.0
+offset_right = 938.0
+offset_bottom = 979.0
+theme_override_fonts/font = ExtResource("2_hdkqp")
+theme_override_font_sizes/font_size = 50
+text = "Water
+"
+
+[node name="Earth" type="Button" parent="."]
+layout_mode = 0
+offset_left = 979.0
+offset_top = 270.0
+offset_right = 1365.0
+offset_bottom = 979.0
+theme_override_fonts/font = ExtResource("2_hdkqp")
+theme_override_font_sizes/font_size = 50
+text = "Earth"
+
+[node name="Fire" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1403.0
+offset_top = 268.0
+offset_right = 1789.0
+offset_bottom = 979.0
+theme_override_fonts/font = ExtResource("2_hdkqp")
+theme_override_font_sizes/font_size = 50
+text = "Fire
+"
+
+[connection signal="pressed" from="Air" to="." method="_on_air_pressed"]
+[connection signal="pressed" from="Water" to="." method="_on_water_pressed"]
+[connection signal="pressed" from="Earth" to="." method="_on_earth_pressed"]
+[connection signal="pressed" from="Fire" to="." method="_on_fire_pressed"]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3 uid="uid://d1bwxjsn6y50d"]
+
+[ext_resource type="Script" path="res://Scripts/Player/WaterPlayer.gd" id="1_tienk"]
+[ext_resource type="PackedScene" uid="uid://c4ve7xadn3agc" path="res://UI/PauseMenu.tscn" id="2_1iywj"]
+[ext_resource type="PackedScene" uid="uid://0swru8iveni8" path="res://UI/Settings/SettingsPanel.tscn" id="3_khmd2"]
+[ext_resource type="PackedScene" uid="uid://s3fuxfwb0u2q" path="res://UI/Settings/Audio/AudioSettings.tscn" id="4_n7wrl"]
+[ext_resource type="PackedScene" uid="uid://dwv2y5py1phjh" path="res://UI/Settings/Video/GameSettings.tscn" id="5_t5jlo"]
+[ext_resource type="PackedScene" uid="uid://cuyk6dryrjhl4" path="res://UI/Settings/Controls/Controls.tscn" id="6_w1a8d"]
+[ext_resource type="Texture2D" uid="uid://i0gijelagr4g" path="res://Sprites/Arrow.png" id="9_03b42"]
+[ext_resource type="Texture2D" uid="uid://c4w8hv027voik" path="res://Sprites/Arrow2.png" id="10_d6ua4"]
+[ext_resource type="Texture2D" uid="uid://bsvl62fe2u8es" path="res://Sprites/Sprite-0002.png" id="11_u501a"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vk57d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rd81j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1xv"]
+size = Vector2(40, 55)
+
+[node name="WaterPlayer" type="CharacterBody2D"]
+position = Vector2(-4, -1)
+collision_mask = 2
+script = ExtResource("1_tienk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4, 1)
+position_smoothing_enabled = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_1iywj")]
+visible = false
+
+[node name="Settings Panel" parent="UI" instance=ExtResource("3_khmd2")]
+visible = false
+
+[node name="AudioSettings" parent="UI/Settings Panel" instance=ExtResource("4_n7wrl")]
+visible = false
+layout_mode = 1
+
+[node name="GameSettings" parent="UI/Settings Panel" instance=ExtResource("5_t5jlo")]
+visible = false
+layout_mode = 1
+
+[node name="Controls2" parent="UI/Settings Panel" instance=ExtResource("6_w1a8d")]
+visible = false
+layout_mode = 1
+
+[node name="Sprites" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+position = Vector2(27, 3.81365)
+scale = Vector2(0.701841, 0.847477)
+texture = SubResource("CompressedTexture2D_vk57d")
+
+[node name="Player" type="Sprite2D" parent="Sprites"]
+position = Vector2(4, 1)
+scale = Vector2(0.0573521, 0.0565769)
+texture = SubResource("CompressedTexture2D_rd81j")
+
+[node name="Timers" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = -4.0
+offset_right = 48.0
+offset_bottom = 5.0
+color = Color(0, 0, 100, 1)
+
+[node name="Timer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Timer3" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Markers" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -27.0
+offset_right = 24.0
+offset_bottom = 28.0
+color = Color(0, 0, 1, 1)
+
+[node name="Shooting Point" type="Marker2D" parent="Markers"]
+position = Vector2(61, 28)
+
+[node name="Wall Point" type="Marker2D" parent="Markers"]
+position = Vector2(103, 28)
+
+[node name="Arrows" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
+
+[node name="Arrow" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(176, 1)
+texture = ExtResource("9_03b42")
+
+[node name="Arrow2" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(303, 1)
+texture = ExtResource("10_d6ua4")
+
+[node name="Arrow3" type="Sprite2D" parent="Arrows"]
+visible = false
+position = Vector2(123.998, 1)
+scale = Vector2(1.62475, 9.125)
+texture = ExtResource("11_u501a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 0.5)
+shape = SubResource("RectangleShape2D_kn1xv")

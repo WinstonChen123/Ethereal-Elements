@@ -1,21 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1bwxjsn6y50d"]
+[gd_scene load_steps=10 format=3 uid="uid://n5p6njbn0qhy"]
 
-[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_hnh1r"]
-[ext_resource type="PackedScene" uid="uid://c4ve7xadn3agc" path="res://UI/PauseMenu.tscn" id="2_tcmng"]
-[ext_resource type="PackedScene" uid="uid://0swru8iveni8" path="res://UI/Settings/SettingsPanel.tscn" id="3_1iel2"]
-[ext_resource type="PackedScene" uid="uid://s3fuxfwb0u2q" path="res://UI/Settings/Audio/AudioSettings.tscn" id="4_173sg"]
-[ext_resource type="PackedScene" uid="uid://dwv2y5py1phjh" path="res://UI/Settings/Video/GameSettings.tscn" id="5_yby1q"]
-[ext_resource type="PackedScene" uid="uid://cuyk6dryrjhl4" path="res://UI/Settings/Controls/Controls.tscn" id="6_bn7dt"]
-[ext_resource type="Texture2D" uid="uid://bdmp4e3mdj6uj" path="res://Sprites/Screenshot 2023-12-26 144209.png" id="7_p0ikt"]
-[ext_resource type="Texture2D" uid="uid://c5klveyksy5o6" path="res://Sprites/Sprite-0001.png" id="8_yp6fn"]
+[ext_resource type="Script" path="res://Scripts/Player/WaterPlayer.gd" id="1_ijmnv"]
+[ext_resource type="PackedScene" uid="uid://c4ve7xadn3agc" path="res://UI/PauseMenu.tscn" id="2_e1kyj"]
+[ext_resource type="PackedScene" uid="uid://0swru8iveni8" path="res://UI/Settings/SettingsPanel.tscn" id="3_pc8l4"]
+[ext_resource type="PackedScene" uid="uid://s3fuxfwb0u2q" path="res://UI/Settings/Audio/AudioSettings.tscn" id="4_2vi5s"]
+[ext_resource type="PackedScene" uid="uid://dwv2y5py1phjh" path="res://UI/Settings/Video/GameSettings.tscn" id="5_yxfib"]
+[ext_resource type="PackedScene" uid="uid://cuyk6dryrjhl4" path="res://UI/Settings/Controls/Controls.tscn" id="6_htnjq"]
+[ext_resource type="Texture2D" uid="uid://c5klveyksy5o6" path="res://Sprites/Sprite-0001.png" id="7_rouyw"]
+[ext_resource type="Texture2D" uid="uid://bdmp4e3mdj6uj" path="res://Sprites/Screenshot 2023-12-26 144209.png" id="8_5l2u2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kn1xv"]
 size = Vector2(36.5, 54)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="AirPlayer" type="CharacterBody2D"]
 position = Vector2(-4, -1)
 collision_mask = 2
-script = ExtResource("1_hnh1r")
+script = ExtResource("1_ijmnv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(4, 1)
@@ -24,21 +24,21 @@ position_smoothing_enabled = true
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="PauseMenu" parent="UI" instance=ExtResource("2_tcmng")]
+[node name="PauseMenu" parent="UI" instance=ExtResource("2_e1kyj")]
 visible = false
 
-[node name="Settings Panel" parent="UI" instance=ExtResource("3_1iel2")]
+[node name="Settings Panel" parent="UI" instance=ExtResource("3_pc8l4")]
 visible = false
 
-[node name="AudioSettings" parent="UI/Settings Panel" instance=ExtResource("4_173sg")]
-visible = false
-layout_mode = 1
-
-[node name="GameSettings" parent="UI/Settings Panel" instance=ExtResource("5_yby1q")]
+[node name="AudioSettings" parent="UI/Settings Panel" instance=ExtResource("4_2vi5s")]
 visible = false
 layout_mode = 1
 
-[node name="Controls2" parent="UI/Settings Panel" instance=ExtResource("6_bn7dt")]
+[node name="GameSettings" parent="UI/Settings Panel" instance=ExtResource("5_yxfib")]
+visible = false
+layout_mode = 1
+
+[node name="Controls2" parent="UI/Settings Panel" instance=ExtResource("6_htnjq")]
 visible = false
 layout_mode = 1
 
@@ -50,12 +50,12 @@ color = Color(1, 1, 1, 0)
 [node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
 position = Vector2(27, 3.81365)
 scale = Vector2(0.701841, 0.847477)
-texture = ExtResource("8_yp6fn")
+texture = ExtResource("7_rouyw")
 
 [node name="Player" type="Sprite2D" parent="Sprites"]
 position = Vector2(4, 1)
 scale = Vector2(0.0573521, 0.0565769)
-texture = ExtResource("7_p0ikt")
+texture = ExtResource("8_5l2u2")
 
 [node name="Timers" type="ColorRect" parent="."]
 offset_left = 7.0
@@ -80,7 +80,7 @@ offset_right = 24.0
 offset_bottom = 28.0
 
 [node name="Shooting Point" type="Marker2D" parent="Markers"]
-position = Vector2(41, 28)
+position = Vector2(44, 28)
 
 [node name="Shooting Point2" type="Marker2D" parent="Markers"]
 position = Vector2(503, 26)

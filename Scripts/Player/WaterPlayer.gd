@@ -1,17 +1,22 @@
 extends CharacterBody2D
 
 var spell = 0
-@export var speed = 300
-
+@export var speed = 225
 @onready var WaterBlastCoolDown = $Timers/Timer
 @onready var IceShardCoolDown = $Timers/Timer2
 @onready var IceWallCoolDown = $Timers/Timer3
-@onready var shootingPoint = $"Markers/Shooting Point"
 
-const enemy = preload("res://Prefabs/Mobs/Enemy.tscn")
+@onready var shootingPoint = $"Markers/Shooting Point"
+@onready var wallPoint = $"Markers/Wall Point"
+
+@onready var WaterBlastArrow = $Arrows/Arrow
+@onready var IceShardArrow = $Arrows/Arrow2
+@onready var IceWallArrow = $Arrows/Arrow3
+
 const WaterBlast = preload("res://Prefabs/Spells/WaterBlast.tscn")
 const IceWall = preload("res://Prefabs/Spells/IceWall.tscn")
 const IceShard = preload("res://Prefabs/Spells/IceShard.tscn")
+
 
 func _ready():
 	pass
@@ -23,7 +28,7 @@ func _physics_process(_delta):
 func Waterblast():
 	var projectile = WaterBlast.instantiate()
 
-	WaterBlastCoolDown.wait_time = 0.2
+	WaterBlastCoolDown.wait_time = 1.5
 	owner.add_child(projectile)
 	projectile.transform = shootingPoint.global_transform 
 	WaterBlastCoolDown.start()
@@ -41,7 +46,7 @@ func Icewall():
 	
 	IceWallCoolDown.wait_time = 7
 	owner.add_child(projectile)
-	projectile.transform = shootingPoint.global_transform 
+	projectile.transform = wallPoint.global_transform 
 	IceWallCoolDown.start()
 
 func spell4():
@@ -53,11 +58,11 @@ func spell4():
 	WaterBlastCoolDown.start()
 
 func spell5():
-	var projectile = enemy.instantiate()
+	var projectile = WaterBlast.instantiate()
 
-	WaterBlastCoolDown.wait_time = 0.001
+	WaterBlastCoolDown.wait_time = 0.1
 	owner.add_child(projectile)
-	projectile.transform = $"Markers/Shooting Point2".global_transform 
+	projectile.transform = shootingPoint.global_transform 
 	WaterBlastCoolDown.start()
 
 func movement():
@@ -68,6 +73,7 @@ func movement():
 
 func inputs():
 	if Engine.time_scale == 1:
+	#region Spells
 		$".".look_at(get_global_mouse_position())
 		if Input.is_action_pressed("Spell1"):
 			spell = 0
@@ -85,12 +91,32 @@ func inputs():
 					Waterblast()
 				if spell == 3:
 					spell4()
+				if spell == 4:
+					spell5()
 			if IceShardCoolDown.is_stopped():
 				if spell == 1:
 					Iceshard()
 			if IceWallCoolDown.is_stopped():
 				if spell == 2:
 					Icewall()
-			if spell == 4:
-				spell5()
+#endregion
+		if Input.is_action_pressed("SpellChange") and spell == 0:
+			WaterBlastArrow.show()
+		else:
+			WaterBlastArrow.hide()
+
+		if Input.is_action_pressed("SpellChange") and spell == 1:
+			IceShardArrow.show()
+		else:
+			IceShardArrow.hide()
+
+		if Input.is_action_pressed("SpellChange") and spell == 2:
+			IceWallArrow.show()
+		else:
+			IceWallArrow.hide()
+		if Input.is_action_pressed("SpellChange") and spell == 3:
+			WaterBlastArrow.show()
+		if Input.is_action_pressed("SpellChange") and spell == 4:
+			WaterBlastArrow.show()
+
 
